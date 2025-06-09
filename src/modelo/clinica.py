@@ -9,7 +9,6 @@ from .exepciones import (
     MedicoNoEncontradoException,
     MedicoNoDisponibleException,
     TurnoOcupadoException,
-    RecetaInvalidaException,
     PacienteDuplicadoException,
     MedicoDuplicadoException,
     DatosInvalidosException
@@ -18,10 +17,10 @@ from .exepciones import (
 
 class Clinica:
     def __init__(self):
-        self.__pacientes = {}  # dni -> Paciente
-        self.__medicos = {}    # matricula -> Medico
-        self.__turnos = []     # Lista de turnos
-        self.__historias_clinicas = {}  # dni -> HistoriaClinica
+        self.__pacientes = {}  
+        self.__medicos = {}    
+        self.__turnos = []
+        self.__historias_clinicas = {} 
 
     def agregar_paciente(self, paciente: Paciente):
         """Registra un paciente y crea su historia clínica."""

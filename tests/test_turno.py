@@ -1,11 +1,5 @@
 import unittest
-import sys
-import os
 from datetime import datetime
-
-# Agregar el directorio padre al path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from src.modelo.turno import Turno
 from src.modelo.paciente import Paciente
 from src.modelo.medico import Medico
@@ -18,7 +12,7 @@ class TestTurno(unittest.TestCase):
         self.medico = Medico("Dr. Carlos Gómez", "1234")
         self.medico.agregar_especialidad(Especialidad("Pediatría", ["lunes"]))
         
-        self.fecha_hora = datetime(2026, 6, 1, 10, 0)  # 1 de junio de 2026 es lunes
+        self.fecha_hora = datetime(2026, 6, 1, 10, 0)
         self.especialidad = "Pediatría"
         self.turno = Turno(self.paciente, self.medico, self.fecha_hora, self.especialidad)
 

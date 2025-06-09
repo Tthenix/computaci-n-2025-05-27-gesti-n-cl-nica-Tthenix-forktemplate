@@ -11,17 +11,22 @@ class Medico:
         self.__nombre = nombre.strip()
         self.__matricula = matricula.strip()
         self.__especialidades = []
-        
         if especialidades:
             for especialidad in especialidades:
                 self.agregar_especialidad(especialidad)
 
     def _validar_nombre(self, nombre: str):
-        """Valida que el nombre no esté vacío y solo contenga letras y espacios."""
+        """Valida que el nombre no esté vacío y solo contenga letras, espacios y puntos."""
         if not nombre or not nombre.strip():
             raise DatosInvalidosException("El nombre no puede estar vacío")
         
-        if not re.match(r'^[A-Za-zÁáÉéÍíÓóÚúÑñ\s\.]+$', nombre.strip()):
+        # Verificar que no contenga números
+        if any(char.isdigit() for char in nombre):
+            raise DatosInvalidosException("El nombre no puede contener números")
+        
+        # Quitar espacios y puntos para verificar que solo tenga letras
+        nombre_solo_letras = nombre.replace(' ', '').replace('.', '')
+        if not nombre_solo_letras.isalpha():
             raise DatosInvalidosException("El nombre solo puede contener letras, espacios y puntos")
 
     def _validar_matricula(self, matricula: str):
@@ -30,7 +35,7 @@ class Medico:
             raise DatosInvalidosException("La matrícula no puede estar vacía")
         
         matricula_limpia = matricula.strip()
-        if not re.match(r'^\d{4,10}$', matricula_limpia):
+        if not (matricula_limpia.isdigit() and 4 <= len(matricula_limpia) <= 10):
             raise DatosInvalidosException("La matrícula debe tener entre 4 y 10 dígitos")
 
     def agregar_especialidad(self, especialidad: Especialidad):

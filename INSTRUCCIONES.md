@@ -89,20 +89,20 @@ El sistema está diseñado siguiendo los principios de **Programación Orientada
 ```
 Sistema de Gestión Clínica/
 ├── src/
-│   ├── modelo/          # Lógica de negocio y clases del dominio
-│   │   ├── paciente.py       # Clase Paciente
-│   │   ├── medico.py         # Clase Medico
-│   │   ├── especialidad.py   # Clase Especialidad
-│   │   ├── turno.py          # Clase Turno
-│   │   ├── receta.py         # Clase Receta
-│   │   ├── historia_clinica.py # Clase HistoriaClinica
-│   │   ├── clinica.py        # Clase principal Clinica
-│   │   └── exepciones.py     # Excepciones personalizadas
-│   └── cli/             # Interfaz de usuario
-│       └── cli.py            # Interfaz de línea de comandos
-├── tests/               # Pruebas unitarias
-├── main.py             # Punto de entrada principal
-└── run_tests.py        # Script para ejecutar pruebas
+│   ├── modelo/           Lógica de negocio y clases del dominio
+│   │   ├── paciente.py       Clase Paciente
+│   │   ├── medico.py        Clase Medico
+│   │   ├── especialidad.py    Clase Especialidad
+│   │   ├── turno.py          Clase Turno
+│   │   ├── receta.py         Clase Receta
+│   │   ├── historia_clinica.py Clase HistoriaClinica
+│   │   ├── clinica.py        Clase principal Clinica
+│   │   └── exepciones.py     Excepciones personalizadas
+│   └── cli/             Interfaz de usuario
+│       └── cli.py            Interfaz de línea de comandos
+├── tests/               Pruebas unitarias
+├── main.py             Punto de entrada principal
+└── run_tests.py        Script para ejecutar pruebas
 ```
 
 ### Principios de diseño aplicados

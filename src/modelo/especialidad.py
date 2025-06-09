@@ -1,6 +1,4 @@
 from .exepciones import DatosInvalidosException
-
-
 class Especialidad:
     DIAS_VALIDOS = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']
     
