@@ -1,11 +1,5 @@
 import unittest
-import sys
-import os
 from datetime import datetime, timedelta
-
-# Agregar el directorio padre al path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from src.modelo.clinica import Clinica
 from src.modelo.paciente import Paciente
 from src.modelo.medico import Medico

@@ -1,10 +1,4 @@
 import unittest
-import sys
-import os
-
-# Agregar el directorio padre al path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from src.modelo.receta import Receta
 from src.modelo.paciente import Paciente
 from src.modelo.medico import Medico

@@ -14,12 +14,18 @@ class Paciente:
         self.__fecha_nacimiento = fecha_nacimiento
 
     def _validar_nombre(self, nombre: str):
-        """Valida que el nombre no esté vacío y solo contenga letras y espacios."""
+        """Valida que el nombre no esté vacío y solo contenga letras, espacios y puntos."""
         if not nombre or not nombre.strip():
             raise DatosInvalidosException("El nombre no puede estar vacío")
         
-        if not re.match(r'^[A-Za-zÁáÉéÍíÓóÚúÑñ\s]+$', nombre.strip()):
-            raise DatosInvalidosException("El nombre solo puede contener letras y espacios")
+        # Verificar que no contenga números
+        if any(char.isdigit() for char in nombre):
+            raise DatosInvalidosException("El nombre no puede contener números")
+        
+        # Quitar espacios y puntos para verificar que solo tenga letras
+        nombre_solo_letras = nombre.replace(' ', '').replace('.', '')
+        if not nombre_solo_letras.isalpha():
+            raise DatosInvalidosException("El nombre solo puede contener letras, espacios y puntos")
 
     def _validar_dni(self, dni: str):
         """Valida que el DNI tenga el formato correcto."""
@@ -27,7 +33,7 @@ class Paciente:
             raise DatosInvalidosException("El DNI no puede estar vacío")
         
         dni_limpio = dni.strip()
-        if not re.match(r'^\d{7,8}$', dni_limpio):
+        if not (dni_limpio.isdigit() and 7 <= len(dni_limpio) <= 8):
             raise DatosInvalidosException("El DNI debe tener entre 7 y 8 dígitos")
 
     def _validar_fecha_nacimiento(self, fecha: str):
